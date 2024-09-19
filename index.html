@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Instagram</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Instagram</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#" id="chat-button">Chat with ChatGPT</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="posts">
+            <article class="post">
+                <header class="post-header">
+                    <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                    <div class="user-info">
+                        <h2>User Name</h2>
+                        <p>@username</p>
+                    </div>
+                </header>
+                <img src="post-image.jpg" alt="Post Image" class="post-image">
+                <footer class="post-footer">
+                    <button class="like-button">❤️ Like</button>
+                    <button class="comment-button">💬 Comment</button>
+                </footer>
+            </article>
+        </section>
+    </main>
+
+    <div id="chat-popup" class="chat-popup">
+        <div class="chat-header">
+            <h2>Chat with ChatGPT</h2>
+            <button id="close-chat">&times;</button>
+        </div>
+        <div class="chat-body">
+            <div class="message">Hello! How can I assist you today?</div>
+            <!-- Messages will be displayed here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Instagram Clone. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('chat-button').addEventListener('click', function() {
+            document.getElementById('chat-popup').style.display = 'block';
+        });
+        document.getElementById('close-chat').addEventListener('click', function() {
+            document.getElementById('chat-popup').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
