@@ -40,7 +40,7 @@ nav ul li a {
     color: #333;
 }
 
-#chat-button {
+#messages-button {
     color: #007bff;
 }
 
@@ -48,81 +48,20 @@ main {
     padding: 20px;
 }
 
-.posts {
-    display: flex;
-    justify-content: center;
-}
-
-.post {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.post-header {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-
-.profile-pic {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.user-info h2 {
-    font-size: 16px;
-}
-
-.user-info p {
-    font-size: 14px;
-    color: #555;
-}
-
-.post-image {
-    width: 100%;
-    display: block;
-}
-
-.post-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-}
-
-.like-button, .comment-button {
-    border: none;
-    background: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-footer {
-    background-color: #ffffff;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    padding: 10px 20px;
-}
-
-.chat-popup {
+.messages-popup {
     display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 300px;
+    width: 350px;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-.chat-header {
+.messages-header {
     background-color: #007bff;
     color: #ffffff;
     padding: 10px;
@@ -133,11 +72,11 @@ footer {
     border-top-right-radius: 8px;
 }
 
-.chat-header h2 {
+.messages-header h2 {
     font-size: 16px;
 }
 
-#close-chat {
+#close-messages {
     background: none;
     border: none;
     font-size: 18px;
@@ -145,10 +84,34 @@ footer {
     color: #ffffff;
 }
 
-.chat-body {
+.messages-body {
     padding: 10px;
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: auto;
+}
+
+.contacts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contacts li {
+    margin-bottom: 10px;
+}
+
+.contacts a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.chat-window {
+    margin-top: 20px;
+}
+
+.chat-window h3 {
+    font-size: 16px;
 }
 
 .message {
@@ -179,4 +142,11 @@ footer {
     border-radius: 4px;
     cursor: pointer;
     margin-left: 10px;
+}
+
+footer {
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 10px 20px;
 }
