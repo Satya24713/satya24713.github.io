@@ -13,40 +13,32 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Explore</a></li>
-                <li><a href="#">Messages</a></li>
+                <li><a href="#" id="messages-button">Messages</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="#" id="chat-button">Chat with ChatGPT</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
         <section class="posts">
-            <article class="post">
-                <header class="post-header">
-                    <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-                    <div class="user-info">
-                        <h2>User Name</h2>
-                        <p>@username</p>
-                    </div>
-                </header>
-                <img src="post-image.jpg" alt="Post Image" class="post-image">
-                <footer class="post-footer">
-                    <button class="like-button">❤️ Like</button>
-                    <button class="comment-button">💬 Comment</button>
-                </footer>
-            </article>
+            <!-- You can add other sections or content here -->
         </section>
     </main>
 
-    <div id="chat-popup" class="chat-popup">
-        <div class="chat-header">
-            <h2>Chat with ChatGPT</h2>
-            <button id="close-chat">&times;</button>
+    <div id="messages-popup" class="messages-popup">
+        <div class="messages-header">
+            <h2>Messages</h2>
+            <button id="close-messages">&times;</button>
         </div>
-        <div class="chat-body">
-            <div class="message">Hello! How can I assist you today?</div>
-            <!-- Messages will be displayed here -->
+        <div class="messages-body">
+            <ul class="contacts">
+                <li><a href="#" data-chat="people1">People 1</a></li>
+                <li><a href="#" data-chat="people2">People 2</a></li>
+                <li><a href="#" data-chat="chatgpt">ChatGPT</a></li>
+            </ul>
+            <div id="chat-window" class="chat-window">
+                <!-- Chat content will be displayed here -->
+            </div>
         </div>
         <div class="chat-footer">
             <input type="text" id="chat-input" placeholder="Type a message...">
@@ -59,11 +51,21 @@
     </footer>
 
     <script>
-        document.getElementById('chat-button').addEventListener('click', function() {
-            document.getElementById('chat-popup').style.display = 'block';
+        document.getElementById('messages-button').addEventListener('click', function() {
+            document.getElementById('messages-popup').style.display = 'block';
         });
-        document.getElementById('close-chat').addEventListener('click', function() {
-            document.getElementById('chat-popup').style.display = 'none';
+
+        document.getElementById('close-messages').addEventListener('click', function() {
+            document.getElementById('messages-popup').style.display = 'none';
+        });
+
+        document.querySelectorAll('.contacts a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const chat = this.getAttribute('data-chat');
+                const chatWindow = document.getElementById('chat-window');
+                chatWindow.innerHTML = `<h3>Chat with ${chat}</h3><div class="message">Welcome to the chat with ${chat}!</div>`;
+            });
         });
     </script>
 </body>
